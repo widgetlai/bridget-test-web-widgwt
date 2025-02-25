@@ -3,7 +3,6 @@
 import { getBlogImages } from "../../utils/images"
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
-import ImageViewer from "../../components/ImageViewer"
 import Image from 'next/image'
 import React from 'react'
 
