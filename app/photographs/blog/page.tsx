@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import ImageViewer from "../../components/ImageViewer"
 import Image from 'next/image'
+import React from 'react'
 
 export default function BlogPage() {
   const blogImages = getBlogImages()
@@ -49,38 +50,52 @@ export default function BlogPage() {
           />
         </div>
       ) : (
-        <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-[1px] space-y-[1px]">
-          {blogImages.map((image, index) => {
-            // Vary sizes more dramatically based on content type or position
-            const isWide = index % 7 === 0;
-            const isTall = index % 5 === 2;
-            const isLarge = index % 13 === 0;
-            
-            const width = isLarge ? 140 : isWide ? 120 : 62;
-            const height = isLarge ? 105 : isTall ? 93 : 46;
-            
-            return (
-              <div 
-                key={image.src}
-                className="break-inside-avoid mb-[1px]"
-              >
-                <div 
-                  className="group cursor-pointer hover:opacity-70 transition-opacity"
-                  onClick={() => setSelectedImage(image)}
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={width}
-                    height={height}
-                    className="object-cover w-full"
-                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                  />
-                  <p className="text-[8px] mt-0.5">{image.alt}</p>
-                </div>
-              </div>
-            );
-          })}
+        <div className="max-w-[1400px] mx-auto">
+          <h1 className="text-[10px] mb-8 -ml-4">Selected images from my blog</h1>
+          <div className="grid gap-[1px] place-items-center" style={{ gridTemplateColumns: 'repeat(17, minmax(0, 62px))' }}>
+            {(() => {
+              const rows: React.ReactElement[] = [];
+              const rowSizes = [5, 7, 9, 11, 13, 15, 17, 15, 13, 11, 9, 7, 5]; // Define diamond shape
+              let currentImageIndex = 0;
+
+              // Create each row of the diamond
+              rowSizes.forEach((columns, rowIndex) => {
+                const offset = Math.floor((17 - columns) / 5);
+                
+                // Create cells for this row
+                for (let col = 0; col < 17; col++) {
+                  if (col >= offset && col < offset + columns && currentImageIndex < blogImages.length) {
+                    const image = blogImages[currentImageIndex];
+                    const isNearCenter = rowIndex >= 2 && rowIndex <= 6 && col >= 3 && col <= 7;
+                    
+                    rows.push(
+                      <div 
+                        key={`${rowIndex}-${col}-${image.src}`}
+                        className="relative cursor-pointer hover:opacity-70 transition-opacity"
+                        style={{
+                          gridColumn: `${col + 1} / span 1`,
+                          gridRow: `${rowIndex + 1} / span 1`,
+                        }}
+                        onClick={() => setSelectedImage(image)}
+                      >
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          width={isNearCenter ? 70 : 62}
+                          height={isNearCenter ? 52 : 46}
+                          className="object-cover w-full"
+                          sizes={isNearCenter ? "70px" : "62px"}
+                        />
+                      </div>
+                    );
+                    currentImageIndex++;
+                  }
+                }
+              });
+
+              return rows;
+            })()}
+          </div>
         </div>
       )}
     </div>
