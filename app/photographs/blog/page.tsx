@@ -1,8 +1,10 @@
 "use client"
 
+
 import { getBlogImages } from "../../utils/images"
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
+import ImageViewer from "../../components/ImageViewer"
 import Image from 'next/image'
 import React from 'react'
 
@@ -30,24 +32,17 @@ export default function BlogPage() {
   }, []);
 
   return (
+    <div>
     <div className="max-w-[1400px] mx-auto p-4">
-      {selectedImage ? (
+        {selectedImage ? (
         <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
-          <button 
-            onClick={() => setSelectedImage(null)}
-            className="absolute top-4 right-4 text-black hover:opacity-70"
-          >
-            Close
-          </button>
-          <Image
-            src={selectedImage.src}
-            alt={selectedImage.alt}
-            width={800}
-            height={600}
-            className="max-h-[90vh] w-auto"
-            style={{ objectFit: 'contain' }}
+          <ImageViewer
+            images={getBlogImages()}
+            selectedImage={selectedImage}
+            onClose={() => setSelectedImage(null)}
+            onImageSelect={(image) => setSelectedImage(image)}
           />
-        </div>
+      </div>
       ) : (
         <div className="max-w-[1400px] mx-auto">
           <h1 className="text-[10px] mb-8 -ml-4">Selected images from my blog</h1>
@@ -98,5 +93,6 @@ export default function BlogPage() {
         </div>
       )}
     </div>
+  </div>
   )
-} 
+}  

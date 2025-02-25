@@ -11,7 +11,7 @@ export default function Navigation() {
     <nav className="flex items-baseline justify-between max-w-[1400px] mx-auto">
       <Link 
         href="/" 
-        className="text-lg hover:opacity-70" 
+        className="text-2xl hover:opacity-70" 
         scroll={false}
         replace
         onClick={() => {
@@ -21,7 +21,7 @@ export default function Navigation() {
       >
         Bridget Lai
       </Link>
-      <div className="flex gap-6 md:gap-8 text-xs">
+      <div className="flex gap-6 md:gap-8 text-base">
         <Link href="/photographs" className="hover:opacity-70">
           photographs
         </Link>
