@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import ImageViewer from "../../components/ImageViewer"
-import { getAllImages } from "../../utils/images"
+import { getEntropyImages } from "../../utils/images"
 
 
 export default function EntropyPage() {
@@ -30,7 +30,7 @@ export default function EntropyPage() {
 
   return (
       <ImageViewer
-        images={getAllImages()}
+        images={getEntropyImages()}
         selectedImage={selectedImage}
         onClose={() => setSelectedImage(null)}
         onImageSelect={setSelectedImage}
