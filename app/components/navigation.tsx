@@ -21,7 +21,7 @@ export default function Navigation() {
       >
         Bridget Lai
       </Link>
-      <div className="flex gap-6 md:gap-8 text-sm">
+      <div className="flex gap-6 md:gap-8 text-xs">
         <Link href="/photographs" className="hover:opacity-70">
           photographs
         </Link>
