@@ -1,20 +1,40 @@
 "use client"
 
+import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
+import ImageViewer from "../../components/ImageViewer"
+import { getAllImages } from "../../utils/images"
+
+
 export default function EntropyPage() {
+  const [selectedImage, setSelectedImage] = useState<{src: string; alt: string} | null>(null)
+  const pathname = usePathname()
+
+  // Reset selected image when navigating to home
+  useEffect(() => {
+    if (pathname === "/") {
+      setSelectedImage(null)
+    }
+  }, [pathname])
+
+  // Expose reset function to window
+  useEffect(() => {
+    // @ts-expect-error - adding custom property to window
+    window.resetHomeView = () => setSelectedImage(null);
+    
+    return () => {
+      // @ts-expect-error - cleanup of custom window property
+      delete window.resetHomeView;
+    };
+  }, []);
+
   return (
-    <div className="max-w-[1400px] mx-auto">
-      <div className="border border-black w-[105px] h-[140px] mb-8 flex items-center justify-center text-xs">
-        entropy pic here
-      </div>
-      
-      <section className="space-y-4 text-xs">
-        <p>
-          Entropy photography collection.
-        </p>
-        <p>
-          More details about the entropy series coming soon.
-        </p>
-      </section>
-    </div>
+      <ImageViewer
+        images={getAllImages()}
+        selectedImage={selectedImage}
+        onClose={() => setSelectedImage(null)}
+        onImageSelect={setSelectedImage}
+      />
   )
+
 } 
