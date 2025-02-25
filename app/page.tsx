@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center -mt-32">
+    <div className="fixed left-1/2 top-28 -translate-x-1/2">
       <Image
         src="/images/homepage_wheat.jpg"
         alt="homepage wheat"
