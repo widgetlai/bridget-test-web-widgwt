@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    unoptimized: true, 
+    unoptimized: false, 
     /* by default, Next.js optimize images (during the build process) for fast loading by converting them to WebPs */
     /* i turned that off because it was making the images look low quality */
     /* it seems like it didnt really affect the loading speed, so I'd keep  'unoptimized: true' there for now */
