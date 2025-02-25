@@ -2,10 +2,7 @@
 
 export default function InfoPage() {
   return (
-    <div className="max-w-[1400px] mx-auto">
-      <div className="border border-black w-[105px] h-[140px] mb-8 flex items-center justify-center text-xs">
-        pic here Lol
-      </div>
+    <div className="max-w-[1400px] mx-auto mt-[30px]">
       
       <section className="max-w-[50%] space-y-4 text-xs">
         <p>

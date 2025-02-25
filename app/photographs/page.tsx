@@ -7,7 +7,7 @@ import Link from 'next/link'
 export default function PhotographsPage() {
   return (
     <div className="max-w-[1400px] mx-auto flex justify-center">
-      <div className="w-[400px] grid sm:grid-cols-2 lg:grid-cols-3 gap-x-[120px] lg:gap-x-[230px] gap-y-20 text-xs">
+      <div className="max-w-sm p-2 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-[120px] lg:gap-x-[230px] gap-y-20 text-xs justify-items-center">
         <Link href="/photographs/entropy" className="space-y-2 hover:opacity-70">
           <div className="border border-black w-[140px] h-[105px] flex items-center justify-center">
             &lt;coming soon&gt;
