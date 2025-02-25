@@ -23,7 +23,7 @@ export default function ImageViewer({
 }: ImageViewerProps) {
   if (!selectedImage) {
     return (
-      <div className="max-w-[600px] mx-auto">
+      <div className="max-w-[600px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {images.map((image, index) => {
             // Calculate offset classes based on position

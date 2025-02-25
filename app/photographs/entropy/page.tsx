@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation"
 import ImageViewer from "../../components/ImageViewer"
 import { getEntropyImages } from "../../utils/images"
 
-
 export default function EntropyPage() {
   const [selectedImage, setSelectedImage] = useState<{src: string; alt: string} | null>(null)
   const pathname = usePathname()
@@ -27,14 +26,19 @@ export default function EntropyPage() {
       delete window.resetHomeView;
     };
   }, []);
-
   return (
-      <ImageViewer
-        images={getEntropyImages()}
-        selectedImage={selectedImage}
-        onClose={() => setSelectedImage(null)}
-        onImageSelect={setSelectedImage}
-      />
+    <div className="max-w-[1400px] ml-[15%] p-0">
+      <h1 className="text-[10px] mb-4 font-bold">Entropy</h1>
+      <p className="text-[9px] mb-4" >(2021-present)</p>
+      <p className="text-[8px] mb-8 max-w-[50%]">The second thermodynamic law states that entropy - the degree of disorder within a system increases with time. Considering the tendency towards disorder and chaos, "Entropy" analyzes current labor systems under a capitalist economic framework, and the growing condition scholars name "Capitalist Realism." More specifically, how the prominence of cuteness as distraction increases with the degree of chaos. "Entropy" is a body of photographic collage that conveys chaos within a closed setting, and an exaggerated visualization of it. The pieces depict a singular space in multiple frames collaged to expand and imagine the setting beyond reality.</p>
+      <div className="mb-32">
+        <ImageViewer
+          images={getEntropyImages()}
+          selectedImage={selectedImage}
+          onClose={() => setSelectedImage(null)}
+          onImageSelect={setSelectedImage}
+        />
+      </div>
+    </div>
   )
-
-} 
+}

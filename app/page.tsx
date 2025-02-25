@@ -13,12 +13,12 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <div>
+    <div className="w-full flex justify-center pt-10 pb-20">
       <Image
         src="/images/homepage_wheat.jpg"
         alt="homepage wheat"
-        width={1000}
-        height={1000}
+        width={600}
+        height={600}
         priority
       />
     </div>

@@ -238,7 +238,7 @@ export const getImages = () => {
     { src: "/images/blog/bridget_064_blog.jpeg", alt: "Blog 64", category: "blog" },
     { src: "/images/blog/bridget_063_blog.jpeg", alt: "Blog 63", category: "blog" },
     { src: "/images/blog/bridget_062_blog.jpeg", alt: "Blog 62", category: "blog" },
-    { src: "/images/blog/bridget_061_blog.jpeg", alt: "Blog 61", category: "blog:"},
+    { src: "/images/blog/bridget_061_blog.jpeg", alt: "Blog 61", category: "blog"},
 
     
   ]
@@ -248,6 +248,7 @@ export const getImages = () => {
 export const getBlogImages = () => {
   return getImages().filter(img => img.category === 'blog')
 }
+
 
 // Helper function to get images by category
 export const getImagesByCategory = (category: string) => {
