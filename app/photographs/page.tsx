@@ -7,10 +7,10 @@ import Image from 'next/image'
 
 export default function PhotographsPage() {
   return (
-    <div className="max-w-[1400px] mx-auto flex justify-center">
-      <div className="max-w-sm p-2 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-[120px] lg:gap-x-[230px] gap-y-20 text-xs justify-items-center">
-        <Link href="/photographs/entropy" className="space-y-1 hover:opacity-70">
-          <div className="w-[140px] relative aspect-[4/3]">
+    <div className="container mx-auto px-4 mt-16 sm:mt-24 lg:mt-32 max-w-[840px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-16 lg:gap-20 auto-rows-auto">
+        <Link href="/photographs/entropy" className="space-y-1 hover:opacity-70 text-center">
+          <div className="w-full max-w-[300px] relative aspect-[4/3]">
             <Image
               src="/images/Bridget_Lai_03_entropy.jpg"
               alt="Entropy preview"
@@ -18,11 +18,11 @@ export default function PhotographsPage() {
               className="object-contain"
             />
           </div>
-          <p className="text-[8px]">Entropy</p>
+          <p className="text-base">Entropy</p>
         </Link>
 
-        <Link href="/photographs/blog" className="space-y-1 hover:opacity-70">
-          <div className="w-[140px] relative aspect-[4/3]">
+        <Link href="/photographs/blog" className="space-y-1 hover:opacity-70 text-center">
+          <div className="w-full max-w-[300px] relative aspect-[4/3]">
             <Image
               src="/images/blog/bridget_179_blog.jpeg"
               alt="Blog preview"
@@ -30,11 +30,11 @@ export default function PhotographsPage() {
               className="object-contain"
             />
           </div>
-          <p className="text-[8px]">Blog</p>
+          <p className="text-base">Blog</p>
         </Link>
 
-        <Link href="/photographs/delaware" className="space-y-1 hover:opacity-70">
-          <div className="w-[140px] relative aspect-[4/3]">
+        <Link href="/photographs/delaware" className="space-y-1 hover:opacity-70 text-center">
+          <div className="w-full max-w-[300px] relative aspect-[4/3]">
             <Image
               src="/images/delaware_preview.jpg"
               alt="Delaware preview"
@@ -42,11 +42,11 @@ export default function PhotographsPage() {
               className="object-contain"
             />
           </div>
-          <p className="text-[8px]">Delaware</p>
+          <p className="text-base">Delaware</p>
         </Link>
 
-        <Link href="/photographs/2020" className="space-y-1 hover:opacity-70">
-          <div className="w-[140px] relative aspect-[4/3]">
+        <Link href="/photographs/2020" className="space-y-1 hover:opacity-70 text-center">
+          <div className="w-full max-w-[300px] relative aspect-[4/3]">
             <Image
               src="/images/2020_preview.jpg"
               alt="2020 preview"
@@ -54,11 +54,11 @@ export default function PhotographsPage() {
               className="object-contain"
             />
           </div>
-          <p className="text-[8px]">2020</p>
+          <p className="text-base">2020</p>
         </Link>
 
-        <Link href="/photographs/archive" className="space-y-1 hover:opacity-70">
-          <div className="w-[140px] relative aspect-[4/3]">
+        <Link href="/photographs/archive" className="space-y-1 hover:opacity-70 text-center">
+          <div className="w-full max-w-[300px] relative aspect-[4/3]">
             <Image
               src="/images/archive_preview.jpg"
               alt="Archive preview"
@@ -66,7 +66,7 @@ export default function PhotographsPage() {
               className="object-contain"
             />
           </div>
-          <p className="text-[8px]">Archive</p>
+          <p className="text-base">Archive</p>
         </Link>
       </div>
     </div>

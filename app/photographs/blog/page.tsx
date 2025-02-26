@@ -45,7 +45,7 @@ export default function BlogPage() {
       </div>
       ) : (
         <div className="max-w-[1400px] mx-auto">
-          <h1 className="text-[10px] mb-8 -ml-4">Selected images from my blog</h1>
+          <h1 className="text-base mb-8 -ml-4">Selected images from my blog</h1>
           <div className="grid gap-[1px] place-items-center" style={{ gridTemplateColumns: 'repeat(17, minmax(0, 62px))' }}>
             {(() => {
               const rows: React.ReactElement[] = [];
